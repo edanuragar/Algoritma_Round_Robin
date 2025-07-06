@@ -1,0 +1,43 @@
+Sleep() fonksiyonu <windows.h> başlık dosyasından gelir.
+
+<unistd.h> başlık dosyası POSIX(UNIX/LINUX) sistemlerine özgü kütüphanedir. 
+MacOs ve Linux sistemlerde çalışır ancak windows da çalışmaz.
+usleep()
+sleep()
+read()
+write()
+fork()
+close()
+getpid()
+exec()
+chdir()
+Fonksiyonları içerir. 
+
+1 saniye = 1000 milisaniye
+1 saniye = 1000000 mikrosaniye
+
+yani;
+saniye
+milisaniye
+mikrosaniye
+
+sleep(2) -> 2 saniye süre boyunca programı uyut (beklet).
+Sleep(2000) -> 2 saniye yani 2000 milisaniye beklet
+usleep(2000000) -> 2 saniye yani 2 mikrosaniye beklet demek
+
+void(*gorevler)(void); 
+ ilk void function dönüş türü *gorevler pointer fonksiyonun bellekteki tutulduğu başlangıç adresi 
+(void) başlangıç parametresini temsil eder 
+benim oluşturduğum fonksiyonların paramterleri olmadığı için boş yani void
+
+int toplam(int a, int b) {
+    return a + b;
+}
+ Böyle bir fonksiyon için pointer'a ihtiyaç duyarsak
+int(*ptr)(int, int); yazmak gerekir 2 paramtresi var aynı zamanda int döndüren bir fonksiyon döndürdüğü değer
+en baştaki int'i ifade eder parametreler () içindeki intler
+ptr = toplam;
+int sonuc = ptr(3,4);
+
+Bu şekilde farklı yapıdaki fonksiyonlar için ortak pointer kullanılamaz ayrı ayrı fonksiyona özel yazılmalıdır.
+Eğer foknsiyonlar aynı yapıda değilse
